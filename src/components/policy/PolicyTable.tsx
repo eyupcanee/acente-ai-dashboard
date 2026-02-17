@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   type ColumnDef,
   flexRender,
@@ -53,10 +52,7 @@ export function PolicyTable<TData, TValue>({
 
   return (
     <div className="space-y-4 w-full">
-      {/* Üst Bar */}
-      {/* Üst Bar */}
       <div className="flex items-center justify-between px-6 pt-4">
-        {/* Sol: Search */}
         <div className="relative w-full max-w-sm">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-500" />
           <Input
@@ -91,8 +87,6 @@ export function PolicyTable<TData, TValue>({
           </DialogContent>
         </Dialog>
       </div>
-
-      {/* Tablo Gövdesi */}
       <div className="rounded-xl border border-zinc-800 bg-zinc-900 overflow-hidden shadow-2xl">
         <div className="overflow-x-auto">
           <Table>
