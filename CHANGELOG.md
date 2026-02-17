@@ -18,6 +18,9 @@
 - Optimistic UI update mutation has been added.
 - Edit and Create forms are created and added to dashboard.
 - Delete function added.
+- Miox AI Assistant persistent widget with word-by-word streaming effect.
+- Inquire Action integration: Automated chatbot triggering with pre-filled policy data.
+- Global state management for chatbot using Zustand
 
 ### Changed
 

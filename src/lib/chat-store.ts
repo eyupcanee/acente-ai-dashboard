@@ -5,7 +5,6 @@ interface ChatStore {
   prefilledMessage: string;
   setIsOpen: (open: boolean) => void;
   setPrefilledMessage: (msg: string) => void;
-  // Inquire butonu için yardımcı fonksiyon
   openWithInquiry: (customer: string, type: string) => void;
 }
 
