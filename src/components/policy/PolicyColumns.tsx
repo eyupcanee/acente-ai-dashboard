@@ -1,8 +1,7 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import type { Policy } from "@/types";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { MessageSquareText } from "lucide-react";
+import { ActionCell } from "./PolicyActions";
 
 const getStatusColor = (status: string) => {
   switch (status) {
@@ -47,19 +46,6 @@ export const columns: ColumnDef<Policy>[] = [
   },
   {
     id: "actions",
-    cell: ({ row }) => {
-      const policy = row.original;
-      return (
-        <Button
-          variant="outline"
-          size="sm"
-          className="flex items-center gap-2 text-blue-600 hover:text-blue-700"
-          onClick={() => console.log(`Inquire about ${policy.customer}`)}
-        >
-          <MessageSquareText className="h-4 w-4" />
-          Inquire
-        </Button>
-      );
-    },
+    cell: ({ row }) => <ActionCell policy={row.original} />,
   },
 ];

@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { usePolicies } from "@/hooks/usePolicies";
-import { DataTable } from "@/components/policy/data-table";
-import { columns } from "@/components/policy/columns";
+import { columns } from "@/components/policy/PolicyColumns";
+import { PolicyTable } from "./components/policy/PolicyTable";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Header } from "@/components/layout/Header";
 import { StatsCards } from "@/components/dashboard/StatsCards";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Loader2 } from "lucide-react";
+import { Toaster } from "@/components/ui/sonner";
 
 function App() {
   const { data: policies, isLoading } = usePolicies();
@@ -55,16 +56,18 @@ function App() {
                   </p>
                 </div>
               ) : (
-                <DataTable
+                <PolicyTable
                   columns={columns}
                   data={policies || []}
                   filterValue={searchTerm}
+                  onSearchChange={setSearchTerm}
                 />
               )}
             </CardContent>
           </Card>
         </main>
       </div>
+      <Toaster theme="dark" position="bottom-right" />
     </div>
   );
 }

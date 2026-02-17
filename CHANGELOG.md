@@ -15,6 +15,9 @@
 - Midnight & Gold theme added.
 - Full-responsive layout coded.
 - Global search bar integration and filtering table features added.
+- Optimistic UI update mutation has been added.
+- Edit and Create forms are created and added to dashboard.
+- Delete function added.
 
 ### Changed
 
