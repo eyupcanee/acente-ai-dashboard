@@ -24,6 +24,7 @@ import { PolicyForm } from "./PolicyForm";
 import { useDeletePolicy } from "@/hooks/usePolicies";
 import { type Policy, type PolicyUpdate } from "@/types";
 import { toast } from "sonner";
+import { useChatStore } from "@/lib/chat-store";
 
 interface ActionCellProps {
   policy: Policy;
@@ -32,11 +33,12 @@ interface ActionCellProps {
 export const ActionCell = ({ policy }: ActionCellProps) => {
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const { mutate: deletePolicy, isPending: isDeleting } = useDeletePolicy();
+  const openWithInquiry = useChatStore((state) => state.openWithInquiry);
 
   const handleEditSubmit = (data: PolicyUpdate) => {
     console.log("Güncellenen Veri:", data);
     setIsEditDialogOpen(false);
-    toast.success(`${policy.customer} isimli poliçe başarıyla güncellendi.`);
+    toast.success(`${policy.customer} policy has been successfully updated.`);
   };
 
   return (
@@ -45,11 +47,7 @@ export const ActionCell = ({ policy }: ActionCellProps) => {
         variant="ghost"
         size="sm"
         className="text-amber-500 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"
-        onClick={() =>
-          toast.info(
-            `${policy.customer} için chatbot üzerinden sorgulama başlatıldı.`,
-          )
-        }
+        onClick={() => openWithInquiry(policy.customer, policy.type)}
       >
         <MessageSquareText className="h-4 w-4 mr-2" />
         Inquire

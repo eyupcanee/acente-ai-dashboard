@@ -8,6 +8,7 @@ import { StatsCards } from "@/components/dashboard/StatsCards";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Loader2 } from "lucide-react";
 import { Toaster } from "@/components/ui/sonner";
+import { MioxBot } from "./components/chatbot/MioxBot";
 
 function App() {
   const { data: policies, isLoading } = usePolicies();
@@ -67,6 +68,7 @@ function App() {
           </Card>
         </main>
       </div>
+      <MioxBot />
       <Toaster theme="dark" position="bottom-right" />
     </div>
   );
